@@ -1,30 +1,28 @@
-#include "keypad.hpp"
 #include "lcdDisplay.hpp"
+#include "adc.hpp"
+
+#include <avr/interrupt.h>
 
 #include <stdio.h>
+
+constexpr uint8_t DISPLAY_LENGTH{16}; ///< Szerokość wyświetlacza.
 
 /**
  * Wykonuje pomiar klawiatury i wyświetla go.
  */
-void printMeasure()
+void printMeasurement()
 {
-	char buf[16];
-}
+	char buf[DISPLAY_LENGTH + 1];
 
-/**
- * Wyświetla bieżący klawisz.
- */
-void printKey()
-{
-}
+	uint16_t measurement{adc.measure()};
+	snprintf(buf, sizeof(buf), "%4u", measurement);
+	lcdDisplay.goTo(0, 4);
+	lcdDisplay.write(buf);
 
-/**
- * Obsługuje licznik.
- */
-void handleCounter()
-{
-	static int16_t counter;
-	char buf[16];
+	double temperature = 1.1 * measurement / 1024 * 100;
+	snprintf(buf, sizeof(buf), "%5.2f", temperature);
+	lcdDisplay.goTo(1, 5);
+	lcdDisplay.write(buf);
 }
 
 /**
@@ -32,21 +30,31 @@ void handleCounter()
  */
 int main()
 {
+	constexpr uint8_t DEGREE[] = {
+	    0b00000010,
+	    0b00000101,
+	    0b00000010,
+	    0b00000000,
+	    0b00000000,
+	    0b00000000,
+	    0b00000000,
+	    0b00000000,
+	};
+
 	lcdDisplay.initialize();
-	keypad.initialize();
+	lcdDisplay.addSymbol(DEGREE, 0);
+	adc.initialize();
+	sei();
 
 	lcdDisplay.goTo(0, 0);
 	lcdDisplay.write("ADC:");
 
-	lcdDisplay.goTo(0, 9);
-	lcdDisplay.write("K:");
-
 	lcdDisplay.goTo(1, 0);
-	lcdDisplay.write("COUNTER:");
+	lcdDisplay.write("TEMP:      C");
+	lcdDisplay.goTo(1, 10);
+	lcdDisplay.write('\x00');
 
 	while (true) {
-		printMeasure();
-		printKey();
-		handleCounter();
+		printMeasurement();
 	}
 }
