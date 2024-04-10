@@ -1,5 +1,5 @@
 ---
-title: "Ćwiczenie 12: Obsługa klawiatury analogowej"
+title: "Ćwiczenie 13: Minimalizacja rozmiaru programu"
 author: [Mariusz Chilmon <<mariusz.chilmon@ctm.gdynia.pl>>]
 lang: "pl"
 titlepage: no
@@ -37,42 +37,56 @@ _W trosce o Państwa wyniki proszę o czytelne wpisywanie nazwisk._
 
 ## Zadanie podstawowe
 
-Wyznacz wartości progowe napięć $V_{threshold}$ dla przycisków w postaci połowy przedziałów między przypisanymi do nich napięciami $V_{key}$. Podaj wzór na wartość pomiaru ADC, której użyjesz w kodzie programu.
-
-\awesomebox[violet]{2pt}{\faBook}{violet}{$V_{key}$ odczytaj ze schematu w instrukcji do ćwiczenia lub ze schematu ideowego płytki.}
+Odczytaj z komunikatów procesu kompilacji rozmiar programu w pamięci Flash (\texttt{Program}) i rozmiar danych w pamięci RAM (\texttt{Data}) dla obu wersji programu.
 
 \begin{center}
-\begin{tabular}{|c|>{\centering}m{15mm}|>{\centering}m{15mm}|c|} 
+\begin{tabular}{|c|c|c|} 
 \hline
-Przycisk & $V_{key}$ & $V_{threshold}$ & ADC \\
+\textbf{Obliczenia} & \textbf{Rozmiar programu} & \textbf{Rozmiar danych} \\
 \hline
-\texttt{RIGHT} & $0{,}0~\text{V}$ & $0{,}5~\text{V}$ & $\sfrac{0{,}5}{5} \cdot 1024$ \\
+zmiennoprzecinkowe & \hphantom{WWWWWWWWWW} & \hphantom{WWWWWWWWWW} \\
 \hline
-\texttt{UP} & $1{,}0~\text{V}$ & $1{,}5~\text{V}$ & $\sfrac{1{,}5}{5} \cdot 1024$ \\ 
-\hline
-\texttt{DOWN} & & & \phantom{WWWWWWWWWWWW} \\[1em]
-\hline
-\texttt{LEFT} & & & \\[1em]
-\hline
-\texttt{SELECT} & & & \\[1em]
+całkowite &  & \\
 \hline
 \end{tabular}
 \end{center}
 
-Czy zmiana napięcia zasilania zaburzy działanie klawiatury? Dlaczego?
-
-\vspace{1.5cm}
-
 ## Zadanie rozszerzone
 
-Od czego zależy maksymalna liczba przycisków, jakie możemy podłączyć do takiej klawiatury?
+Odczytaj z komunikatów procesu kompilacji rozmiar programu w pamięci Flash (\texttt{Program}) i rozmiar danych w pamięci RAM (\texttt{Data}) dla obu wersji programu.
 
-\vspace{3cm}
+\begin{center}
+\begin{tabular}{|c|c|c|} 
+\hline
+\textbf{Poziom optymalizacji} & \textbf{Rozmiar programu} & \textbf{Rozmiar danych} \\
+\hline
+\texttt{-O0} & \hphantom{WWWWWWWWWW} & \hphantom{WWWWWWWWWW} \\
+\hline
+\texttt{-O1} &  & \\
+\hline
+\texttt{-O2} &  & \\
+\hline
+\texttt{-Os} &  & \\
+\hline
+\end{tabular}
+\end{center}
 
-W jakim zakresie zmienia się licznik `int16_t counter`?
+Odczytaj z komunikatów procesu kompilacji rozmiar programu w pamięci Flash (\texttt{Program}) i rozmiar danych w pamięci RAM (\texttt{Data}) dla obu wersji programu.
 
-\vspace{1.5cm}
+\begin{center}
+\begin{tabular}{|c|c|c|} 
+\hline
+\textbf{Biblioteka \texttt{printf}} & \textbf{Rozmiar programu} & \textbf{Rozmiar danych} \\
+\hline
+zmiennoprzecinkowa & \hphantom{WWWWWWWWWW} & \hphantom{WWWWWWWWWW} \\
+\hline
+uproszczona &  & \\
+\hline
+\end{tabular}
+\end{center}
 
-W jakim zakresie zmieniałby się licznik, gdyby był typu `uint16_t`?
+## \faCertificate&nbsp; Zadanie specjalne
 
-\vspace{1.5cm}
+_+1 pkt dla osoby, która jako pierwsza poda poprawną odpowiedź._
+
+Dlaczego wynikiem wyrażenia `1000 * 1000 / 1000` jest 16? (Podaj przebieg obliczeń prowadzących do tego wyniku).
