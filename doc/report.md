@@ -37,7 +37,7 @@ _W trosce o Państwa wyniki proszę o czytelne wpisywanie nazwisk._
 
 ## Zadanie podstawowe
 
-Odczytaj z komunikatów procesu kompilacji rozmiar programu w pamięci Flash (\texttt{Program}) i rozmiar danych w pamięci RAM (\texttt{Data}) dla obu wersji programu.
+Odczytaj z komunikatów procesu kompilacji rozmiar programu w pamięci Flash (\texttt{Program}) i rozmiar danych w pamięci RAM (\texttt{Data}).
 
 \begin{center}
 \begin{tabular}{|c|c|c|} 
@@ -53,7 +53,7 @@ całkowite &  & \\
 
 ## Zadanie rozszerzone
 
-Odczytaj z komunikatów procesu kompilacji rozmiar programu w pamięci Flash (\texttt{Program}) i rozmiar danych w pamięci RAM (\texttt{Data}) dla obu wersji programu.
+Odczytaj z komunikatów procesu kompilacji rozmiar programu w pamięci Flash (\texttt{Program}) i rozmiar danych w pamięci RAM (\texttt{Data}).
 
 \begin{center}
 \begin{tabular}{|c|c|c|} 
@@ -71,7 +71,7 @@ Odczytaj z komunikatów procesu kompilacji rozmiar programu w pamięci Flash (\t
 \end{tabular}
 \end{center}
 
-Odczytaj z komunikatów procesu kompilacji rozmiar programu w pamięci Flash (\texttt{Program}) i rozmiar danych w pamięci RAM (\texttt{Data}) dla obu wersji programu.
+Odczytaj z komunikatów procesu kompilacji rozmiar programu w pamięci Flash (\texttt{Program}) i rozmiar danych w pamięci RAM (\texttt{Data}).
 
 \begin{center}
 \begin{tabular}{|c|c|c|} 
